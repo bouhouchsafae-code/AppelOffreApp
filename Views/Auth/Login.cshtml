@@ -1,0 +1,20 @@
+﻿<h2>Connexion</h2>
+
+<form method="post">
+    <label>Email</label>
+    <input name="email" type="email" required />
+
+    <label>Mot de passe</label>
+    <input name="motDePasse" type="password" required />
+
+    <button type="submit">Connexion</button>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <p style="color:red;">@ViewData.ModelState[string.Empty]?.Errors.FirstOrDefault()?.ErrorMessage</p>
+    }
+</form>
+
+<hr />
+
+<p>Pas encore de compte ? <a href="/Auth/Register">Créer un compte</a></p>

@@ -1,0 +1,23 @@
+﻿@model AppelOffreApp.Models.Utilisateur
+
+<h2>Inscription</h2>
+
+<form method="post">
+    <label>Nom</label>
+    <input name="Nom" value="@Model?.Nom" required />
+
+    <label>Email</label>
+    <input name="Email" type="email" value="@Model?.Email" required />
+    @Html.ValidationMessage("Email")
+
+    <label>Mot de passe</label>
+    <input name="MotDePasse" type="password" required />
+
+    <label>Rôle</label>
+    <select name="Role">
+        <option value="Entreprise">Entreprise</option>
+        <option value="Admin">Admin</option>
+    </select>
+
+    <button type="submit">S'inscrire</button>
+</form>

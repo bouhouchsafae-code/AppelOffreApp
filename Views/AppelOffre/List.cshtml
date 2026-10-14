@@ -1,0 +1,36 @@
+﻿@model List<AppelOffreApp.Models.AppelOffre>
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Tableau de bord admin";
+}
+
+<h2>Liste des Appels d’Offres</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Date limite</th>
+            <th>Statut</th>
+            <th>PDF</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appel in Model)
+        {
+            <tr>
+                <td>@appel.Titre</td>
+                <td>@appel.DateLimite.ToShortDateString()</td>
+                <td>@appel.Statut</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(appel.FichierPdfId))
+                    {
+                        <a asp-action="TelechargerPdf" asp-route-id="@appel.FichierPdfId" class="btn btn-sm btn-outline-primary">
+                            Télécharger
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

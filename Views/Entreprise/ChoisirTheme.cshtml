@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Choisissez votre domaine";
+    var themes = ViewBag.Themes as List<AppelOffreApp.Models.Theme>;
+}
+
+<h2>Choisissez votre domaine d’activité</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="theme" class="form-label">Thème</label>
+        <select name="theme" id="theme" class="form-select" required>
+            <option value="">-- Sélectionner un thème --</option>
+            @foreach (var t in themes)
+            {
+                <option value="@t.Nom">@t.Nom</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Valider</button>
+</form>

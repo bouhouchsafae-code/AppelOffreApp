@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Modifier le thème";
+    var themes = ViewBag.Themes as List<AppelOffreApp.Models.Theme>;
+    var current = ViewBag.CurrentTheme as string;
+}
+
+<h2>Modifier votre thème</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="theme" class="form-label">Nouveau thème</label>
+        <select name="theme" id="theme" class="form-select" required>
+            @foreach (var t in themes)
+            {
+                var isSelected = t.Nom == current ? "selected" : "";
+                <option value="@t.Nom" selected="@isSelected">@t.Nom</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+</form>

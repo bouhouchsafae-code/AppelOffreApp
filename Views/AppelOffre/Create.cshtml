@@ -1,0 +1,27 @@
+﻿@model AppelOffreApp.Models.AppelOffre
+@{
+    Layout = "_LayoutAdmin";
+    ViewData["Title"] = "Tableau de bord admin";
+}
+
+<h2>Créer un Appel d'Offre</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Titre" class="form-label"></label>
+        <input asp-for="Titre" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DateLimite" class="form-label"></label>
+        <input asp-for="DateLimite" type="date" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label for="pdfFile" class="form-label">Fichier PDF de l'appel</label>
+        <input type="file" name="pdfFile" class="form-control" accept="application/pdf" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Publier</button>
+</form>
